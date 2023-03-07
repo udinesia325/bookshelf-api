@@ -39,10 +39,13 @@ const allBook = (request, h) => {
     return {
         "status": "success",
         "data": {
-            ...books.map(book => {
-                return { id: book.id, name: book.name, publisher: book.publisher }
-            })
+            books:
+                [...books.map(book => {
+                    return { id: book.id, name: book.name, publisher: book.publisher }
+                })]
+
         }
+
     }
 }
 const allBookWithid = (request, h) => {
@@ -58,7 +61,7 @@ const allBookWithid = (request, h) => {
     return {
         "status": "success",
         "data": {
-            ...books[indexTarget]
+            book: { ...books[indexTarget] }
         }
     }
 }
